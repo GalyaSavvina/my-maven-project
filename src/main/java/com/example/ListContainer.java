@@ -70,17 +70,17 @@ public class ListContainer<T> {
      * @return Элемент, находящийся по указанному индексу, или `null`, если индекс некорректен.
      */
     public T get(int index) {
-            if (index < 0 || index >= size || head == null) {
+        if (index < 0 || index >= size || head == null) {
+            return null;
+        }
+        Node<T> current = head;
+        for (int i = 0; i < index; i++) {
+            if (current.next == null) {
                 return null;
             }
-            Node<T> current = head;
-            for (int i = 0; i < index; i++) {
-                if (current.next == null) {
-                    return null;
-                }
-                current = current.next;
-            }
-            return current.data;
+            current = current.next;
+        }
+        return current.data;
     }
 
     /**
@@ -89,22 +89,22 @@ public class ListContainer<T> {
      * @param index Индекс элемента для удаления.
      */
     public void remove(int index) {
-            if (index < 0 || index >= size) {
-                return; // Проверка на корректность индекса
-            }
+        if (index < 0 || index >= size) {
+            return; // Проверка на корректность индекса
+        }
 
-            if (index == 0) {
-                // Удаление первого элемента
-                head = head.next;
-            } else {
-                // Удаление элемента по индексу
-                Node<T> current = head;
-                for (int i = 0; i < index - 1; i++) {
-                    current = current.next;
-                }
-                current.next = current.next.next;
+        if (index == 0) {
+            // Удаление первого элемента
+            head = head.next;
+        } else {
+            // Удаление элемента по индексу
+            Node<T> current = head;
+            for (int i = 0; i < index - 1; i++) {
+                current = current.next;
             }
-            size--;
+            current.next = current.next.next;
+        }
+        size--;
     }
 
     /**

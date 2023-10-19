@@ -1,6 +1,8 @@
 import com.example.ListContainer;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
+
 public class ListContainerTest {
     /**
      * Тест метода add и size
@@ -16,6 +18,7 @@ public class ListContainerTest {
         container.add("Item 2");
         assertEquals(2, container.size());
     }
+
     /**
      * Тест метода get
      */
@@ -29,6 +32,7 @@ public class ListContainerTest {
         assertEquals("Item 2", container.get(1));
         assertNull(container.get(2));
     }
+
     /**
      * Тест метода remove
      */
@@ -49,6 +53,7 @@ public class ListContainerTest {
         assertEquals(1, container.size()); // Размер контейнера должен уменьшиться ещё на 1
         assertNull(container.get(1)); // Проверяем, что второй элемент теперь null
     }
+
     /**
      * Тест метода add и remove для элементов со значением null
      */
